@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hg_hub_demo/views/loginForm.dart';
+import 'package:hg_hub_demo/views/splashPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginForm(),
+      home: const SplashPage(),
       debugShowCheckedModeBanner: false,
     );
   }

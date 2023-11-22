@@ -12,8 +12,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       //AppBar
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         title: Center(child: Text("Welcome")),
         actions: [
           Padding(
@@ -54,170 +57,190 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
             ),
             Divider(
-              thickness: 0.5,
+              thickness: 1,
             ),
           ],
         ),
       ),
 
       //Body
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(children: [
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  "Rijwol Shakya",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black38),
-                ),
-              ),
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/background/background1.png',
+              fit: BoxFit.cover,
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Life is what happens when you're busy making other plans. - John Lennon",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
+          ),
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(children: [
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      "Rijwol Shakya",
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black38),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                Text(
-                  "Check-In :...",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
-                      color: Colors.black54),
+                SizedBox(height: 7),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blueAccent,
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Life is what happens when you're busy making other plans. - John Lennon",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
                 ),
-                Spacer(),
-                Text(
-                  "Check-Out :...",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
-                      color: Colors.black54),
-                ),
-              ],
-            ),
-            SizedBox(height: 15),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
+                SizedBox(height: 10),
+                Row(
                   children: [
                     Text(
-                      "Attendance Details (2080/8)",
+                      "Check-In :...",
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Colors.black54),
                     ),
-
-                    //Reusable
-                    Row(
+                    Spacer(),
+                    Text(
+                      "Check-Out :...",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Colors.black54),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blueAccent,
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Row(
-                            children: [
-                              TextItem(text: "Late In: 0"),
-                              TextItem(text: "Early Out: 0"),
-                              TextItem(text: "Leave: 0"),
-                              TextItem(text: "Absent: 0")
-                            ],
-                          ),
+                        Text(
+                          "Attendance Details (2080/8)",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14),
+                          textAlign: TextAlign.left,
+                        ),
+
+                        SizedBox(
+                          height: 5,
+                        ),
+
+                        //Reusable
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Row(
+                                children: [
+                                  TextItem(text: "Late In: 0"),
+                                  TextItem(text: "Early Out: 0"),
+                                  TextItem(text: "Leave: 0"),
+                                  TextItem(text: "Absent: 0")
+                                ],
+                              ),
+                            )
+                          ],
                         )
                       ],
-                    )
-                  ],
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            SizedBox(height: 15),
-            Row(
-              children: [
-                Text(
-                  "App Version 1.2",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54),
-                ),
-                Spacer(),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text("Check-In"),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Column(
-              children: [
+                SizedBox(height: 15),
                 Row(
                   children: [
-                    GridItem(
-                        gridIcon: Icon(
-                          Icons.calendar_month_outlined,
-                          color: Colors.white,
-                        ),
-                        gridText: "Leave Request"),
-                    GridItem(
-                        gridIcon: Icon(Icons.calendar_today_outlined,
-                            color: Colors.white),
-                        gridText: "Reports & List"),
-                    GridItem(
-                        gridIcon: Icon(Icons.leave_bags_at_home_outlined,
-                            color: Colors.white),
-                        gridText: "People on Leave"),
+                    Text(
+                      "App Version 1.2",
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54),
+                    ),
+                    Spacer(),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text("Check-In"),
+                    ),
                   ],
                 ),
-                Row(
+                SizedBox(
+                  height: 10,
+                ),
+
+                // GridItem(
+                //     gridIcon: Image.asset("assets/icons/CalendarPlus.png"),
+                //     gridText: "Leave Request"),
+                Column(
                   children: [
-                    GridItem(
-                        gridIcon:
-                            Icon(Icons.book_outlined, color: Colors.white),
-                        gridText: "Highland Library"),
-                    GridItem(
-                        gridIcon:
-                            Icon(Icons.computer_outlined, color: Colors.white),
-                        gridText: "Digital HR"),
-                    GridItem(
-                        gridIcon: Icon(Icons.content_paste_search_outlined,
-                            color: Colors.white),
-                        gridText: "Vacancies"),
+                    Row(
+                      children: [
+                        GridItem(
+                            gridIcon:
+                                Image.asset("assets/icons/CalendarPlus.png"),
+                            gridText: "Leave Request"),
+                        Spacer(),
+                        GridItem(
+                            gridIcon: Image.asset("assets/icons/Calendar.png"),
+                            gridText: "Reports & List"),
+                        Spacer(),
+                        GridItem(
+                            gridIcon:
+                                Image.asset("assets/icons/PeopleOnLeave.png"),
+                            gridText: "People on Leave"),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        GridItem(
+                            gridIcon: Image.asset("assets/icons/Library.png"),
+                            gridText: "Highland Library"),
+                        Spacer(),
+                        GridItem(
+                            gridIcon: Image.asset(
+                                "assets/icons/SystemInformation.png"),
+                            gridText: "Digital HR"),
+                        Spacer(),
+                        GridItem(
+                            gridIcon: Image.asset("assets/icons/Vacancy.png"),
+                            gridText: "Vacancies"),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        GridItem(
+                            gridIcon:
+                                Image.asset("assets/icons/E-Learning.png"),
+                            gridText: "Highland LMS"),
+                      ],
+                    ),
                   ],
-                ),
-                Row(
-                  children: [
-                    GridItem(
-                        gridIcon: Icon(Icons.laptop_chromebook_outlined,
-                            color: Colors.white),
-                        gridText: "Highland LMS"),
-                  ],
-                ),
-              ],
-            )
-          ]),
-        ),
+                )
+              ]),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -231,20 +254,20 @@ class TextItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(2.5),
+      padding: const EdgeInsets.fromLTRB(11, 2.5, 11, 2.5),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(3.0),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(4.0),
+          padding: const EdgeInsets.all(5.0),
           child: Text(
             text,
             style: TextStyle(
                 color: Colors.blueAccent,
                 fontWeight: FontWeight.bold,
-                fontSize: 12),
+                fontSize: 13),
           ),
         ),
       ),
@@ -253,7 +276,7 @@ class TextItem extends StatelessWidget {
 }
 
 class GridItem extends StatelessWidget {
-  final Icon gridIcon;
+  final Image gridIcon;
   final String gridText;
 
   const GridItem({Key? key, required this.gridIcon, required this.gridText})
@@ -264,11 +287,10 @@ class GridItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5),
       child: Container(
-        width: 85,
-        height: 80,
+        width: 110,
         decoration: BoxDecoration(
           color: Colors.blueAccent,
-          borderRadius: BorderRadius.circular(6.0),
+          borderRadius: BorderRadius.circular(5.0),
         ),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -279,7 +301,7 @@ class GridItem extends StatelessWidget {
               Text(
                 gridText,
                 style: TextStyle(
-                    fontSize: 10,
+                    fontSize: 12,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
                 textAlign: TextAlign.center,
@@ -290,4 +312,40 @@ class GridItem extends StatelessWidget {
       ),
     );
   }
+  // @override
+  // Widget build(BuildContext context) {
+  //   return GridView.builder(
+  //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+  //       crossAxisCount: 3, // Number of columns in the grid
+  //       crossAxisSpacing: 8.0, // Spacing between columns
+  //       mainAxisSpacing: 8.0, // Spacing between rows
+  //     ),
+  //     itemCount: 7, // Number of items in the grid
+  //     itemBuilder: (BuildContext context, int index) {
+  //       return Container(
+  //         decoration: BoxDecoration(
+  //           color: Colors.blueAccent,
+  //           borderRadius: BorderRadius.circular(5.0),
+  //         ),
+  //         child: Padding(
+  //           padding: const EdgeInsets.all(10.0),
+  //           child: Column(
+  //             children: [
+  //               gridIcon,
+  //               SizedBox(height: 5),
+  //               Text(
+  //                 gridText,
+  //                 style: TextStyle(
+  //                     fontSize: 12,
+  //                     fontWeight: FontWeight.bold,
+  //                     color: Colors.white),
+  //                 textAlign: TextAlign.center,
+  //               )
+  //             ],
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 }
