@@ -5,4 +5,4 @@ const Color cGreen = Color(0xFF638d6a);
 const Color cRed = Color(0xFFff6363);
 const Color cWhite = Color(0xFFffffff);
 const Color cBlack = Color(0xFF000000);
-const Color cGray = Color.fromARGB(255, 93, 89, 89);
+const Color cGray = Color.fromARGB(255, 121, 119, 119);

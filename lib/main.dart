@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hg_hub_demo/views/homePage.dart';
+import 'package:hg_hub_demo/views/leaveRequestPage.dart';
+import 'package:hg_hub_demo/views/loginForm.dart';
+import 'package:hg_hub_demo/views/reportsListPage.dart';
 import 'package:hg_hub_demo/views/splashPage.dart';
 
 void main() {
@@ -16,8 +20,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashPage(),
+      //home: const SplashPage(),
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashPage(),
+        '/login': (context) => const LoginForm(),
+        '/home': (context) => const HomePage(),
+        '/leaveRequest': (context) => const LeaveRequestForm(),
+        '/reportList': (context) => const ReportListPage(),
+      },
     );
   }
 }

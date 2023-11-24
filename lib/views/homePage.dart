@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hg_hub_demo/utilities/colors.dart';
+import 'package:hg_hub_demo/utilities/fonts.dart';
+import 'package:hg_hub_demo/views/gridItem.dart';
 import 'package:hg_hub_demo/views/loginForm.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,12 +15,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      //extendBodyBehindAppBar: true,
       //AppBar
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        //backgroundColor: cWhite,
         elevation: 0,
-        title: Center(child: Text("Welcome")),
+        title: Center(
+            child: Text(
+          "Welcome",
+          style: fTitle_white,
+        )),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -68,7 +75,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Positioned.fill(
             child: Image.asset(
-              'assets/background/background1.png',
+              'assets/background/background2.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -79,56 +86,34 @@ class _HomePageState extends State<HomePage> {
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
-                    child: Text(
-                      "Rijwol Shakya",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black38),
-                    ),
+                    child: Text("Rijwol Shakya", style: fTitle_white),
                   ),
                 ),
                 SizedBox(height: 7),
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.blueAccent,
+                    color: cWhite,
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "Life is what happens when you're busy making other plans. - John Lennon",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                      ),
-                    ),
+                        "Life is what happens when you're busy making other plans. - John Lennon",
+                        style: fSmall_gray_bold),
                   ),
                 ),
                 SizedBox(height: 10),
                 Row(
                   children: [
-                    Text(
-                      "Check-In :...",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                          color: Colors.black54),
-                    ),
+                    Text("Check-In :...", style: fSmall_white_bold),
                     Spacer(),
-                    Text(
-                      "Check-Out :...",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                          color: Colors.black54),
-                    ),
+                    Text("Check-Out :...", style: fSmall_white_bold),
                   ],
                 ),
                 SizedBox(height: 15),
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.blueAccent,
+                    color: cWhite,
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   child: Padding(
@@ -137,11 +122,8 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text(
                           "Attendance Details (2080/8)",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14),
-                          textAlign: TextAlign.left,
+                          style: fRegular_blue_bold,
+                          textAlign: TextAlign.start,
                         ),
 
                         SizedBox(
@@ -171,17 +153,26 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 15),
                 Row(
                   children: [
-                    Text(
-                      "App Version 1.2",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black54),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: cWhite,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Text("App Version 4.6", style: fSmall_blue_bold),
+                      ),
                     ),
                     Spacer(),
+                    // CircleAvatar(
+                    //     child: Icon(
+                    //   Icons.refresh,
+                    //   color: cBlue,
+                    // )),
+                    // Spacer(),
                     ElevatedButton(
                       onPressed: () {},
                       child: Text("Check-In"),
+                      //style: ButtonStyle(backgroundColor: Colors.black),
                     ),
                   ],
                 ),
@@ -197,8 +188,9 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         GridItem(
-                            gridIcon:
-                                Image.asset("assets/icons/CalendarPlus.png"),
+                            gridIcon: Image.asset(
+                              "assets/icons/CalendarPlus.png",
+                            ),
                             gridText: "Leave Request"),
                         Spacer(),
                         GridItem(
@@ -257,95 +249,17 @@ class TextItem extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(11, 2.5, 11, 2.5),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: cBlue,
           borderRadius: BorderRadius.circular(3.0),
         ),
         child: Padding(
           padding: const EdgeInsets.all(5.0),
           child: Text(
             text,
-            style: TextStyle(
-                color: Colors.blueAccent,
-                fontWeight: FontWeight.bold,
-                fontSize: 13),
+            style: fSmall_white_bold,
           ),
         ),
       ),
     );
   }
-}
-
-class GridItem extends StatelessWidget {
-  final Image gridIcon;
-  final String gridText;
-
-  const GridItem({Key? key, required this.gridIcon, required this.gridText})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5),
-      child: Container(
-        width: 110,
-        decoration: BoxDecoration(
-          color: Colors.blueAccent,
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              gridIcon,
-              SizedBox(height: 5),
-              Text(
-                gridText,
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-                textAlign: TextAlign.center,
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-  // @override
-  // Widget build(BuildContext context) {
-  //   return GridView.builder(
-  //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-  //       crossAxisCount: 3, // Number of columns in the grid
-  //       crossAxisSpacing: 8.0, // Spacing between columns
-  //       mainAxisSpacing: 8.0, // Spacing between rows
-  //     ),
-  //     itemCount: 7, // Number of items in the grid
-  //     itemBuilder: (BuildContext context, int index) {
-  //       return Container(
-  //         decoration: BoxDecoration(
-  //           color: Colors.blueAccent,
-  //           borderRadius: BorderRadius.circular(5.0),
-  //         ),
-  //         child: Padding(
-  //           padding: const EdgeInsets.all(10.0),
-  //           child: Column(
-  //             children: [
-  //               gridIcon,
-  //               SizedBox(height: 5),
-  //               Text(
-  //                 gridText,
-  //                 style: TextStyle(
-  //                     fontSize: 12,
-  //                     fontWeight: FontWeight.bold,
-  //                     color: Colors.white),
-  //                 textAlign: TextAlign.center,
-  //               )
-  //             ],
-  //           ),
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
 }
