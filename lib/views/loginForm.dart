@@ -156,203 +156,208 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Stack(
+      body: Stack(
         children: [
-          Positioned.fill(
-            child: Image.asset('assets/background/background1.png',
-                fit: BoxFit.cover),
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/background/background1.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Center(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Text(
-                    "Welcome To",
-                    style: fTitle_white,
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(9),
-                      color: cWhite,
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Center(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 50,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "HG-HUB",
-                        style: fHGHub,
+                    Text(
+                      "Welcome To",
+                      style: fTitle_white,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(9),
+                        color: cWhite,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "HG-HUB",
+                          style: fHGHub,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 5),
-                  //logo
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Container(
-                      width: 150,
-                      height: 150,
-                      child: Image.asset("assets/logo.jpeg"),
+                    SizedBox(height: 5),
+                    //logo
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Container(
+                        width: 130,
+                        height: 130,
+                        child: Image.asset("assets/logo.jpeg"),
+                      ),
                     ),
-                  ),
 
-                  //LOGIN FORM
-                  Form(
-                    key: _formKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TextFormField(
-                          controller: _usernameController,
-                          decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: cBlue,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            prefixIcon: Icon(Icons.person),
-                            prefixIconColor: cBlue,
-                            labelText: "Enter Your Username",
-                            labelStyle: fRegular_blue,
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your username';
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          controller: _passwordController,
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: cBlue,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            prefixIcon: Icon(Icons.security),
-                            prefixIconColor: cBlue,
-                            labelText: "Enter Your Password",
-                            labelStyle: fRegular_blue,
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your username';
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            Checkbox(value: true, onChanged: (value) {}),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: cWhite,
-                                  borderRadius: BorderRadius.circular(5)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Text(
-                                  "Remember Me",
-                                  style: fSmall_blue_bold,
+                    //LOGIN FORM
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextFormField(
+                            controller: _usernameController,
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: cBlue,
                                 ),
+                                borderRadius: BorderRadius.circular(5.0),
                               ),
-                            )
-                          ],
-                        ),
-                        SizedBox(height: 20),
-                        Row(
-                          children: [
-                            Container(
-                              child: ElevatedButton(
-                                  onPressed: () {
-                                    _getLocation();
-                                    //_getDeviceInfo();
-                                    //_findConnectivity();
-                                    //sendSlackMessage();
-                                    //TODO
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const HomePage()));
-                                  },
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(70, 5, 70, 5),
-                                    child: Text(
-                                      "Login",
-                                      style: fRegular_white_bold,
-                                    ),
-                                  )),
+                              prefixIcon: Icon(Icons.person),
+                              prefixIconColor: cBlue,
+                              labelText: "Enter Your Username",
+                              labelStyle: fRegular_blue,
                             ),
-                            Spacer(),
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: Icon(Icons.fingerprint),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your username';
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            controller: _passwordController,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: cBlue,
+                                ),
+                                borderRadius: BorderRadius.circular(5.0),
                               ),
-                            )
-                          ],
-                        ),
-                      ],
+                              prefixIcon: Icon(Icons.security),
+                              prefixIconColor: cBlue,
+                              labelText: "Enter Your Password",
+                              labelStyle: fRegular_blue,
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your username';
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Checkbox(value: true, onChanged: (value) {}),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: cWhite,
+                                    borderRadius: BorderRadius.circular(5)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Text(
+                                    "Remember Me",
+                                    style: fSmall_blue_bold,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            children: [
+                              Container(
+                                child: ElevatedButton(
+                                    onPressed: () {
+                                      _getLocation();
+                                      //_getDeviceInfo();
+                                      //_findConnectivity();
+                                      //sendSlackMessage();
+                                      //TODO
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const HomePage()));
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          70, 5, 70, 5),
+                                      child: Text(
+                                        "Login",
+                                        style: fRegular_white_bold,
+                                      ),
+                                    )),
+                              ),
+                              Spacer(),
+                              ElevatedButton(
+                                onPressed: () {},
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Icon(Icons.fingerprint),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 20),
+                    SizedBox(height: 20),
 
-                  Center(
-                    child: Column(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              color: cWhite,
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Text("App Version 1.2",
-                                style: fSmall_blue_bold),
+                    Center(
+                      child: Column(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: cWhite,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Text("App Version 1.2",
+                                  style: fSmall_blue_bold),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 10),
-                        Container(
-                          decoration: BoxDecoration(
-                              color: cWhite,
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Text("Check for Updates",
-                                style: fSmall_blue_bold),
+                          SizedBox(height: 10),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: cWhite,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Text("Check for Updates",
+                                  style: fSmall_blue_bold),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
         ],
       ),
-    ));
+    );
   }
 }

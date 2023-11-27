@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hg_hub_demo/reusable/gridItem.dart';
 import 'package:hg_hub_demo/utilities/colors.dart';
 import 'package:hg_hub_demo/utilities/fonts.dart';
-import 'package:hg_hub_demo/views/gridItem.dart';
 import 'package:hg_hub_demo/views/loginForm.dart';
 
 class HomePage extends StatefulWidget {
@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
+        backgroundColor: cBlue,
       ),
 
       //Drawer
@@ -73,10 +74,12 @@ class _HomePageState extends State<HomePage> {
       //Body
       body: Stack(
         children: [
-          Positioned.fill(
-            child: Image.asset(
-              'assets/background/background2.jpg',
-              fit: BoxFit.cover,
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/background/background2.jpg'),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           SingleChildScrollView(

@@ -26,9 +26,9 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       body: Center(
         child: Container(
-          width: 200,
-          height: 200,
-          child: Image.asset("assets/logo.jpeg"),
+          width: 300,
+          height: 300,
+          child: Image.asset("assets/icons/logo.png"),
         ),
       ),
     );

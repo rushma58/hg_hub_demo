@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hg_hub_demo/utilities/colors.dart';
 import 'package:hg_hub_demo/utilities/fonts.dart';
 import 'package:hg_hub_demo/views/leaveRequestPage.dart';
+import 'package:hg_hub_demo/views/peopleOnLeavePage.dart';
 import 'package:hg_hub_demo/views/reportsListPage.dart';
 
 class GridItem extends StatelessWidget {
@@ -50,6 +51,27 @@ gridFunction(BuildContext context, String gridText) {
         MaterialPageRoute(builder: (context) => const LeaveRequestForm()));
   }
   if (gridText == "Reports & List") {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const ReportListPage()));
+  }
+  if (gridText == "People on Leave") {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const PeopleOnLeavePage()));
+  }
+  //TODO
+  if (gridText == "Highlnd Library") {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const ReportListPage()));
+  }
+  if (gridText == "Digital HR") {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const ReportListPage()));
+  }
+  if (gridText == "Vacancies") {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const ReportListPage()));
+  }
+  if (gridText == "Vacancies") {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => const ReportListPage()));
   }
