@@ -7,6 +7,12 @@ const TextStyle fTitle_white = TextStyle(
     fontSize: 24.0,
     color: cWhite);
 
+const TextStyle fWelcome_white = TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.bold,
+    fontSize: 22.0,
+    color: cWhite);
+
 const TextStyle fTitle_blue = TextStyle(
     fontFamily: 'Poppins',
     fontWeight: FontWeight.bold,

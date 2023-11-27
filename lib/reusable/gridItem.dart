@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hg_hub_demo/utilities/colors.dart';
 import 'package:hg_hub_demo/utilities/fonts.dart';
+import 'package:hg_hub_demo/views/digitalHRPage.dart';
+import 'package:hg_hub_demo/views/highlandLibraryPage.dart';
 import 'package:hg_hub_demo/views/leaveRequestPage.dart';
+import 'package:hg_hub_demo/views/lmsSystemPage.dart';
 import 'package:hg_hub_demo/views/peopleOnLeavePage.dart';
 import 'package:hg_hub_demo/views/reportsListPage.dart';
+import 'package:hg_hub_demo/views/vacancies.dart';
 
 class GridItem extends StatelessWidget {
   final Image gridIcon;
@@ -58,21 +62,21 @@ gridFunction(BuildContext context, String gridText) {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => const PeopleOnLeavePage()));
   }
-  //TODO
-  if (gridText == "Highlnd Library") {
+  if (gridText == "Highland Library") {
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const ReportListPage()));
+        MaterialPageRoute(builder: (context) => const HighlandLibraryPage()));
   }
   if (gridText == "Digital HR") {
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const ReportListPage()));
+        MaterialPageRoute(builder: (context) => const DigitalHRPage()));
   }
+  //TODO
   if (gridText == "Vacancies") {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const ReportListPage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const VacancyPage()));
   }
-  if (gridText == "Vacancies") {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const ReportListPage()));
+  if (gridText == "Highland LMS") {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const LMSSytemPage()));
   }
 }

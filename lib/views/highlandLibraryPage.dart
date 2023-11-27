@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hg_hub_demo/reusable/appBarPage.dart';
 import 'package:hg_hub_demo/reusable/gridItem.dart';
 
-class ReportListPage extends StatefulWidget {
-  const ReportListPage({super.key});
+class HighlandLibraryPage extends StatefulWidget {
+  const HighlandLibraryPage({super.key});
 
   @override
-  State<ReportListPage> createState() => _ReportListPageState();
+  State<HighlandLibraryPage> createState() => _HighlandLibraryPageState();
 }
 
-class _ReportListPageState extends State<ReportListPage> {
+class _HighlandLibraryPageState extends State<HighlandLibraryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class _ReportListPageState extends State<ReportListPage> {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/background/background2.jpg'),
+              image: AssetImage('assets/background/Library4.jpg'),
               fit: BoxFit.cover,
             ),
           ),
@@ -26,7 +26,7 @@ class _ReportListPageState extends State<ReportListPage> {
         Column(
           children: [
             TopAppBar(
-              appBarName: "Reports & Lists",
+              appBarName: "Highland Library",
               filterRequired: false,
             ),
             Padding(
@@ -35,17 +35,17 @@ class _ReportListPageState extends State<ReportListPage> {
                 children: [
                   GridItem(
                       gridIcon: Image.asset(
-                        "assets/icons/Leave.png",
+                        "assets/icons/BorrowBook.png",
                       ),
-                      gridText: "My Leave"),
+                      gridText: "Borrow Book"),
                   Spacer(),
                   GridItem(
-                      gridIcon: Image.asset("assets/icons/Planner.png"),
-                      gridText: "My Attendance"),
+                      gridIcon: Image.asset("assets/icons/BookList.png"),
+                      gridText: "My Borrow List"),
                   Spacer(),
                   GridItem(
-                      gridIcon: Image.asset("assets/icons/HolidayList.png"),
-                      gridText: "Holiday List"),
+                      gridIcon: Image.asset("assets/icons/ReadersList.png"),
+                      gridText: "Readers List"),
                 ],
               ),
             )

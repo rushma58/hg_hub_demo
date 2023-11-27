@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hg_hub_demo/reusable/appBarPage.dart';
 import 'package:hg_hub_demo/utilities/colors.dart';
+import 'package:hg_hub_demo/utilities/fonts.dart';
 
 class PeopleOnLeavePage extends StatefulWidget {
   const PeopleOnLeavePage({super.key});
@@ -10,7 +11,8 @@ class PeopleOnLeavePage extends StatefulWidget {
 }
 
 class _PeopleOnLeavePageState extends State<PeopleOnLeavePage> {
-  bool customIcon = false;
+  bool customIcon1 = false;
+  bool customIcon2 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,72 +29,145 @@ class _PeopleOnLeavePageState extends State<PeopleOnLeavePage> {
         SingleChildScrollView(
           child: Column(
             children: [
-              TopAppBar(appBarName: "People on Leave"),
+              TopAppBar(
+                appBarName: "People on Leave",
+                filterRequired: true,
+              ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(18.0),
                 child: Column(
                   children: [
                     ExpansionTile(
+                      //initiallyExpanded: true,
+                      collapsedBackgroundColor: cWhite,
                       backgroundColor: cWhite,
-                      title: Text("On Leave"),
-                      trailing: Icon(customIcon
-                          ? Icons.arrow_upward
-                          : Icons.arrow_downward),
+                      expandedAlignment: Alignment.centerLeft,
+                      collapsedShape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                      title: Text(
+                        "On Leave",
+                        style: fRegular_blue_bold,
+                      ),
+                      trailing: Icon(
+                        customIcon1
+                            ? Icons.arrow_drop_up
+                            : Icons.arrow_drop_down,
+                        color: cBlue,
+                      ),
                       children: [
-                        ListTile(
-                          title: Column(
-                            children: [
-                              Text(
-                                "Omkar Patrabansas",
-                                textAlign: TextAlign.left,
-                              ),
-                              Text("Omkar Patrab"),
-                            ],
+                        Card(
+                          child: ListTile(
+                            title: Text(
+                              "Anu Thapa Magar (City Office)",
+                              style: fSmall_white_bold,
+                            ),
+                            subtitle: Text(
+                              "2080-8-10 to 2080-8-15",
+                              style: fSmall_white,
+                            ),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                            tileColor: cGreen,
                           ),
                         ),
-                        Divider(),
-                        ListTile(
-                          title: Column(
-                            children: [
-                              Text(
-                                "Omkar Patrabansas",
-                                textAlign: TextAlign.left,
-                              ),
-                              Text("Omkar Patrab"),
-                            ],
+                        Card(
+                          child: ListTile(
+                            title: Text(
+                              "Anu Thapa Magar (City Office)",
+                              style: fSmall_white_bold,
+                            ),
+                            subtitle: Text(
+                              "2080-8-10 to 2080-8-15",
+                              style: fSmall_white,
+                            ),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                            tileColor: cGreen,
                           ),
                         ),
                       ],
                       onExpansionChanged: (bool expanded) {
-                        setState(() => customIcon = expanded);
+                        setState(() => customIcon1 = expanded);
                       },
                     ),
                     SizedBox(height: 10),
+
+                    //Expansion 2
                     ExpansionTile(
+                      //initiallyExpanded: true,
+                      collapsedBackgroundColor: cWhite,
                       backgroundColor: cWhite,
-                      title: Text("Absent"),
-                      trailing: Icon(customIcon
-                          ? Icons.arrow_upward
-                          : Icons.arrow_downward),
+                      expandedAlignment: Alignment.centerLeft,
+                      collapsedShape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                      title: Text(
+                        "Absent",
+                        style: fRegular_blue_bold,
+                      ),
+                      trailing: Icon(
+                        customIcon2
+                            ? Icons.arrow_drop_up
+                            : Icons.arrow_drop_down,
+                        color: cBlue,
+                      ),
                       children: [
-                        ListTile(
-                          title: Text("Rijwol Shakya"),
+                        Card(
+                          child: ListTile(
+                            title: Text(
+                              "Rijwol Shakya",
+                              style: fSmall_white_bold,
+                            ),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                            tileColor: cBlue,
+                          ),
                         ),
-                        Divider(),
-                        ListTile(
-                          title: Text("Rijwol Shakya"),
+                        Card(
+                          child: ListTile(
+                            title: Text(
+                              "Rijwol Shakya",
+                              style: fSmall_white_bold,
+                            ),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                            tileColor: cBlue,
+                          ),
                         ),
-                        Divider(),
-                        ListTile(
-                          title: Text("Rijwol Shakya"),
+                        Card(
+                          child: ListTile(
+                            title: Text(
+                              "Rijwol Shakya",
+                              style: fSmall_white_bold,
+                            ),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                            tileColor: cBlue,
+                          ),
                         ),
-                        Divider(),
-                        ListTile(
-                          title: Text("Rijwol Shakya"),
+                        Card(
+                          child: ListTile(
+                            title: Text(
+                              "Rijwol Shakya",
+                              style: fSmall_white_bold,
+                            ),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                            tileColor: cBlue,
+                          ),
                         ),
                       ],
                       onExpansionChanged: (bool expanded) {
-                        setState(() => customIcon = expanded);
+                        setState(() => customIcon2 = expanded);
                       },
                     ),
                   ],

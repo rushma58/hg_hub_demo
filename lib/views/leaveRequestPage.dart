@@ -63,10 +63,13 @@ class _LeaveRequestFormState extends State<LeaveRequestForm> {
         SingleChildScrollView(
           child: Column(
             children: [
-              TopAppBar(appBarName: "Leave Request"),
+              TopAppBar(
+                appBarName: "Leave Request",
+                filterRequired: false,
+              ),
               SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(18.0),
                   child: Column(
                     children: [
                       Row(

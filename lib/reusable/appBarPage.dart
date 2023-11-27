@@ -5,7 +5,9 @@ import 'package:hg_hub_demo/views/homePage.dart';
 
 class TopAppBar extends StatelessWidget {
   final String appBarName;
-  const TopAppBar({super.key, required this.appBarName});
+  final bool filterRequired;
+  const TopAppBar(
+      {super.key, required this.appBarName, required this.filterRequired});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,20 @@ class TopAppBar extends StatelessWidget {
           style: fTitle_blue,
         ),
       ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: filterRequired
+              ? IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.filter_list,
+                    color: cBlue,
+                  ),
+                )
+              : SizedBox(width: 15),
+        )
+      ],
       backgroundColor: cWhite,
     );
   }
