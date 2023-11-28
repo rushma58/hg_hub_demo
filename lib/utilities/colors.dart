@@ -6,3 +6,4 @@ const Color cRed = Color(0xFFff6363);
 const Color cWhite = Color(0xFFffffff);
 const Color cBlack = Color(0xFF000000);
 const Color cGray = Color.fromARGB(255, 121, 119, 119);
+const Color cOrange = Color(0xFFFFA050);

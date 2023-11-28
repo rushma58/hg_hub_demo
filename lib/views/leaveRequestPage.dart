@@ -79,12 +79,16 @@ class _LeaveRequestFormState extends State<LeaveRequestForm> {
                             style: fRegular_blue_bold,
                           ),
                           Switch(
-                            activeColor: Colors.purple,
-                            activeTrackColor: Colors.purpleAccent,
+                            activeColor: cBlue,
+                            activeTrackColor: Colors.lightBlue,
                             inactiveThumbColor: Colors.white,
                             inactiveTrackColor: cGray,
-                            value: false,
-                            onChanged: (bool value) {},
+                            value: true,
+                            onChanged: (bool value) {
+                              setState(() {
+                                value = !value;
+                              });
+                            },
                           ),
                           Text(
                             "Work on Holiday",

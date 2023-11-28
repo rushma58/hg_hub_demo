@@ -24,17 +24,25 @@ class GridItem extends StatelessWidget {
         onTap: () => gridFunction(context, gridText),
         child: Container(
           width: 115,
-          height: 110,
+          height: 115,
           decoration: BoxDecoration(
             color: cWhite,
             borderRadius: BorderRadius.circular(8.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey, // Shadow color
+                offset: Offset(0, 2), // Shadow position (x, y)
+                blurRadius: 4.0, // Blur radius
+                spreadRadius: 1.0, // Spread radius
+              ),
+            ],
           ),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
                 gridIcon,
-                SizedBox(height: 5),
+                SizedBox(height: 8),
                 Text(
                   gridText,
                   style: fSmall_red_bold,

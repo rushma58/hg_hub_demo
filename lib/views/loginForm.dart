@@ -156,207 +156,267 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/background/background1.png'),
-                fit: BoxFit.cover,
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: Center(
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/background/background1.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-            ),
-          ),
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Center(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 50,
-                    ),
-                    Text(
-                      "Welcome To",
-                      style: fTitle_white,
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(9),
-                        color: cWhite,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "HG-HUB",
-                          style: fHGHub,
+              SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 50,
                         ),
-                      ),
-                    ),
-                    SizedBox(height: 5),
-                    //logo
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Container(
-                        width: 130,
-                        height: 130,
-                        child: Image.asset("assets/logo.jpeg"),
-                      ),
-                    ),
-
-                    //LOGIN FORM
-                    Form(
-                      key: _formKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextFormField(
-                            controller: _usernameController,
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: cBlue,
-                                ),
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              prefixIcon: Icon(Icons.person),
-                              prefixIconColor: cBlue,
-                              labelText: "Enter Your Username",
-                              labelStyle: fRegular_blue,
+                        Text(
+                          "Welcome To",
+                          style: fTitle_white,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(9),
+                            color: cWhite,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "HG-HUB",
+                              style: fHGHub,
                             ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your username';
-                              }
-                              return null;
-                            },
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          TextFormField(
-                            controller: _passwordController,
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: cBlue,
-                                ),
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              prefixIcon: Icon(Icons.security),
-                              prefixIconColor: cBlue,
-                              labelText: "Enter Your Password",
-                              labelStyle: fRegular_blue,
+                        ),
+                        SizedBox(height: 5),
+                        //logo
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Container(
+                            width: 150,
+                            height: 150,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: cWhite,
                             ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter your username';
-                              }
-                              return null;
-                            },
+                            child: Image.asset("assets/icons/logo.png"),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
+                        ),
+                        SizedBox(height: 20),
+                        //LOGIN FORM
+                        Form(
+                          key: _formKey,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Checkbox(value: true, onChanged: (value) {}),
-                              SizedBox(
-                                width: 10,
+                              TextFormField(
+                                controller: _usernameController,
+                                decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      width: 1,
+                                      color: cBlue,
+                                    ),
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
+                                  prefixIcon: Icon(Icons.person),
+                                  prefixIconColor: cBlue,
+                                  labelText: "Enter Your Username",
+                                  labelStyle: fRegular_blue,
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter your username';
+                                  }
+                                  return null;
+                                },
                               ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              TextFormField(
+                                controller: _passwordController,
+                                obscureText: true,
+                                decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      width: 1,
+                                      color: cBlue,
+                                    ),
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
+                                  prefixIcon: Icon(Icons.security),
+                                  prefixIconColor: cBlue,
+                                  // suffixIcon: Iconify(Ic.sharp_remove_red_eye),
+                                  // suffixIconColor: cBlue,
+                                  labelText: "Enter Your Password",
+                                  labelStyle: fRegular_blue,
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter your username';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: [
+                                  Checkbox(value: true, onChanged: (value) {}),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: cWhite,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: Text(
+                                        "Remember Me",
+                                        style: fSmall_blue_bold,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(height: 20),
+                              Row(
+                                children: [
+                                  Container(
+                                    child: ElevatedButton(
+                                        style: ButtonStyle(
+                                          backgroundColor: MaterialStateProperty
+                                              .resolveWith<Color>(
+                                            (Set<MaterialState> states) {
+                                              // Change button color based on isCheckedIn state
+                                              return cBlue;
+                                            },
+                                          ),
+                                          side: MaterialStateProperty
+                                              .resolveWith<BorderSide>(
+                                            (Set<MaterialState> states) {
+                                              // Add a white border when the button is pressed
+                                              return BorderSide(
+                                                  color: Colors.white,
+                                                  width: 2.0);
+                                            },
+                                          ),
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(
+                                                  10.0), // Adjust the value for roundness
+                                            ),
+                                          ),
+                                        ),
+                                        onPressed: () {
+                                          _getLocation();
+                                          //_getDeviceInfo();
+                                          //_findConnectivity();
+                                          //sendSlackMessage();
+                                          //TODO
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const HomePage()));
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              90, 5, 90, 5),
+                                          child: Text(
+                                            "Login",
+                                            style: fRegular_white_bold,
+                                          ),
+                                        )),
+                                  ),
+                                  Spacer(),
+                                  ElevatedButton(
+                                    style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                        (Set<MaterialState> states) {
+                                          // Change button color based on isCheckedIn state
+                                          return cBlue;
+                                        },
+                                      ),
+                                      side: MaterialStateProperty.resolveWith<
+                                          BorderSide>(
+                                        (Set<MaterialState> states) {
+                                          // Add a white border when the button is pressed
+                                          return BorderSide(
+                                              color: Colors.white, width: 2.0);
+                                        },
+                                      ),
+                                      shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              10.0), // Adjust the value for roundness
+                                        ),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Icon(Icons.fingerprint),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 20),
+
+                        Center(
+                          child: Column(
+                            children: [
                               Container(
                                 decoration: BoxDecoration(
                                     color: cWhite,
                                     borderRadius: BorderRadius.circular(5)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(4.0),
-                                  child: Text(
-                                    "Remember Me",
-                                    style: fSmall_blue_bold,
-                                  ),
+                                  child: Text("App Version 1.2",
+                                      style: fSmall_blue_bold),
                                 ),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 20),
-                          Row(
-                            children: [
-                              Container(
-                                child: ElevatedButton(
-                                    onPressed: () {
-                                      _getLocation();
-                                      //_getDeviceInfo();
-                                      //_findConnectivity();
-                                      //sendSlackMessage();
-                                      //TODO
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const HomePage()));
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          70, 5, 70, 5),
-                                      child: Text(
-                                        "Login",
-                                        style: fRegular_white_bold,
-                                      ),
-                                    )),
                               ),
-                              Spacer(),
-                              ElevatedButton(
-                                onPressed: () {},
+                              SizedBox(height: 10),
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: cWhite,
+                                    borderRadius: BorderRadius.circular(5)),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Icon(Icons.fingerprint),
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Text("Check for Updates",
+                                      style: fSmall_blue_bold),
                                 ),
-                              )
+                              ),
                             ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    SizedBox(height: 20),
-
-                    Center(
-                      child: Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: cWhite,
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Text("App Version 1.2",
-                                  style: fSmall_blue_bold),
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: cWhite,
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Text("Check for Updates",
-                                  style: fSmall_blue_bold),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

@@ -20,32 +20,48 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       drawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text("Settings"),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.key),
-              title: Text("Change Password"),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.south),
-              title: Text("Check for Updates"),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text("Exit App"),
-              onTap: () {},
-            ),
-            Divider(
-              thickness: 1,
-            ),
-          ],
+        backgroundColor: Color(0xff0EB9EF),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
+            children: [
+              ListTile(
+                leading: Icon(
+                  Icons.settings,
+                  color: cWhite,
+                ),
+                title: Text(
+                  "Settings",
+                  style: fSmall_white,
+                ),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.key,
+                  color: cWhite,
+                ),
+                title: Text(
+                  "Change Password",
+                  style: fSmall_white,
+                ),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.south, color: cWhite),
+                title: Text("Check for Updates", style: fSmall_white),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.exit_to_app, color: cWhite),
+                title: Text("Exit App", style: fSmall_white),
+                onTap: () {},
+              ),
+              Divider(
+                thickness: 1,
+              ),
+            ],
+          ),
         ),
       ),
       //Body
@@ -126,14 +142,18 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   SizedBox(height: 15),
+
+                  //Attendance
                   Container(
+                    width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       color: cWhite,
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Attendance Details (2080/8)",
@@ -141,30 +161,31 @@ class _HomePageState extends State<HomePage> {
                             textAlign: TextAlign.start,
                           ),
 
-                          SizedBox(
-                            height: 5,
-                          ),
+                          SizedBox(height: 5),
 
                           //Reusable
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: Row(
-                                  children: [
-                                    TextItem(text: "Late In: 0"),
-                                    TextItem(text: "Early Out: 0"),
-                                    TextItem(text: "Leave: 0"),
-                                    TextItem(text: "Absent: 0")
-                                  ],
-                                ),
-                              )
-                            ],
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Row(
+                                children: [
+                                  TextItem(text: "Late In: 0"),
+                                  Spacer(),
+                                  TextItem(text: "Early Out: 0"),
+                                  Spacer(),
+                                  TextItem(text: "Leave: 0"),
+                                  Spacer(),
+                                  TextItem(text: "Absent: 0")
+                                ],
+                              ),
+                            ),
                           )
                         ],
                       ),
                     ),
                   ),
+
                   SizedBox(height: 15),
                   Row(
                     children: [
@@ -179,8 +200,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Spacer(),
-                      CircleAvatar(
-                        child: Icon(
+                      const CircleAvatar(
+                        child: const Icon(
                           Icons.refresh,
                           color: cBlue,
                         ),
@@ -193,7 +214,11 @@ class _HomePageState extends State<HomePage> {
                             isCheckedIn = !isCheckedIn;
                           });
                         },
-                        child: Text(isCheckedIn ? "Check-Out" : "Check-In"),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child:
+                              Text(isCheckedIn ? "Check-Out" : "  Check-In "),
+                        ),
                         style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.resolveWith<Color>(
@@ -202,8 +227,21 @@ class _HomePageState extends State<HomePage> {
                               return isCheckedIn ? cRed : Colors.green;
                             },
                           ),
+                          side: MaterialStateProperty.resolveWith<BorderSide>(
+                            (Set<MaterialState> states) {
+                              // Add a white border when the button is pressed
+                              return BorderSide(
+                                  color: Colors.white, width: 2.0);
+                            },
+                          ),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  20.0), // Adjust the value for roundness
+                            ),
+                          ),
                         ),
-                        //style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith((states) => null)),
                       ),
                     ],
                   ),
@@ -279,7 +317,7 @@ class TextItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10, 2.5, 10, 2.5),
+      padding: const EdgeInsets.all(4.0),
       child: Container(
         decoration: BoxDecoration(
           color: cBlue,

@@ -41,6 +41,7 @@ dependencies:
   dio: ^5.3.3
   connectivity_plus: ^5.0.1
   nepali_date_picker: ^5.3.3
+  iconify_flutter: ^0.0.5
 
 dev_dependencies:
   flutter_test:
